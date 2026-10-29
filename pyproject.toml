@@ -29,6 +29,7 @@ dev = [
     "ipykernel>=7.4.0",
     "pre-commit>=4.7.0",
     "commitizen>=4.19.3",
+    "pytest-cov>=7.1.0",
 ]
 
 [tool.ruff]
@@ -88,3 +89,10 @@ split-on-trailing-comma = false
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
+
+[tool.coverage.run]
+source = ["src"]
+
+[tool.coverage.report]
+fail_under = 85
+show_missing = true
