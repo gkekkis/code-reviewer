@@ -1,0 +1,16 @@
+# Files
+.env
+settings.json
+.pre-commit-config.yaml
+*.bkp
+
+#Folders
+data/
+.venv/
+.vscode/
+.idea/
+src/config files
+notebooks/
+output_dir/
+__pycache__/
+src/core/env_vars/LOCAL
