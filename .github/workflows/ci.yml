@@ -1,0 +1,23 @@
+name: CI
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0                  # full history, so origin/main exists for cz check
+      - uses: astral-sh/setup-uv@v10.3.3
+        with:
+            enable-cache: true
+      - run: uv sync --locked             # installs main + dev deps; fails if uv.lock is stale
+      - run: uv run pre-commit run --all-files
+        env:
+          SKIP: no-commit-to-branch       # CI runs on main after a merge; this hook would always fail there
+      - if: github.event_name == 'pull_request'
+        run: uv run cz check --rev-range origin/main..HEAD
