@@ -1,7 +1,6 @@
 # Files
 .env
 settings.json
-.pre-commit-config.yaml
 *.bkp
 
 #Folders
