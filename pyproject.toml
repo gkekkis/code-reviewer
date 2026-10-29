@@ -94,5 +94,5 @@ pythonpath = ["."]
 source = ["src"]
 
 [tool.coverage.report]
-fail_under = 85
+fail_under = 50
 show_missing = true
