@@ -21,3 +21,4 @@ jobs:
           SKIP: no-commit-to-branch       # CI runs on main after a merge; this hook would always fail there
       - if: github.event_name == 'pull_request'
         run: uv run cz check --rev-range origin/main..HEAD
+      - run: uv run python -m pytest --cov

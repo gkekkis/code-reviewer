@@ -2,6 +2,7 @@
 .env
 settings.json
 *.bkp
+.coverage
 
 #Folders
 data/
